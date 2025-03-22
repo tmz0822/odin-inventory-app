@@ -1,1 +1,27 @@
 <h1>Categories</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% categories.forEach((category) => { %>
+    <tr>
+      <td><%= category.id %></td>
+      <td><%= category.name %></td>
+      <td><%= category.description %></td>
+      <td>
+        <a href="/categories/<%= category.id %>/update">Update</a>
+        <form method="post" action="/categories/<%= category.id %>/delete">
+          <button type="submit">Delete</button>
+        </form>
+      </td>
+    </tr>
+    <% }); %>
+  </tbody>
+</table>

@@ -16,4 +16,6 @@ categoriesRouter.get('/:id/update', categoriesController.updateCategoryGet);
 
 categoriesRouter.post('/:id/update', categoriesController.updateCategoryPost);
 
+categoriesRouter.post('/:id/delete', categoriesController.deleteCategory);
+
 module.exports = categoriesRouter;

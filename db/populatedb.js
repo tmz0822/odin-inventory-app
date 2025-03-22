@@ -8,7 +8,7 @@ const SQL = `
     description TEXT
   );
 
-  CREATE TABLE inventory (
+  CREATE TABLE items (
     id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
     name VARCHAR(100) NOT NULL,
     quantity INTEGER,
