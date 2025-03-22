@@ -1,5 +1,6 @@
-<% if (session.message) { %>
+<% if (message) { %>
 <script>
-  alert('<%= session.message %>');
+  alert('<%= message %>');
+  location.href = '<%= href %>';
 </script>
-<% session.message = null; %> <% } %>
+<% message = null; %> <% } %>

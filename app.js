@@ -1,6 +1,8 @@
+require('dotenv').config();
 const express = require('express');
 const app = express();
 const path = require('node:path');
+const session = require('express-session');
 
 const itemsRouter = require('./routes/itemsRouter');
 const categoriesRouter = require('./routes/categoriesRouter');
@@ -9,6 +11,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/items', itemsRouter);
 app.use('/categories', categoriesRouter);

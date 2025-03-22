@@ -1,3 +1,5 @@
+<%- include('../partials/header') %>
+
 <h1>Update Category</h1>
 <form action="/categories/<%= category.id %>/update" method="POST">
   <label for="name">Name</label>
@@ -14,3 +16,5 @@
   >
   <button type="submit">Update</button>
 </form>
+
+<%- include('../partials/footer') %>

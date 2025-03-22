@@ -1,7 +1,19 @@
 const pool = require('../pool');
 
 async function getItems() {
-  const { rows } = await pool.query('SELECT * FROM items');
+  const { rows } = await pool.query(
+    `
+    SELECT 
+      items.id, 
+      items.name,
+      items.quantity, 
+      items.unitPrice AS unit_price, 
+      category.name AS category_name 
+    FROM items
+    JOIN category
+    ON category.id = items.categoryId
+    `
+  );
   return rows;
 }
 
@@ -26,4 +38,14 @@ async function updateItem(id, { name, quantity, unitPrice, categoryId }) {
   );
 }
 
-module.exports = { getItems, addItem, updateItem };
+async function deleteItem(id) {
+  await pool.query(
+    `
+    DELETE FROM items
+    WHERE id = $1
+    `,
+    [id]
+  );
+}
+
+module.exports = { getItems, addItem, updateItem, deleteItem };

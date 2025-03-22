@@ -47,6 +47,8 @@ async function updateItemPost(req, res) {
   await db.updateItem(id, { name, quantity, unitPrice, categoryId });
 }
 
+async function deleteItem(req, res) {}
+
 module.exports = {
   getItems,
   addItemGet,
@@ -54,4 +56,5 @@ module.exports = {
   getItemById,
   updateItemGet,
   updateItemPost,
+  deleteItem,
 };

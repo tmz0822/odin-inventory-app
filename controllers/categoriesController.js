@@ -47,12 +47,14 @@ async function deleteCategory(req, res) {
   const categoryItemCount = await db.getCategoryItemCount(id);
 
   if (categoryItemCount > 0) {
-    req.session.message =
-      'Failed to delete the category that has items belong to it.';
+    res.render('../views/partials/alert', {
+      message: 'Failed to delete the category that has items.',
+      href: '/categories',
+    });
   } else {
     await db.deleteCategory(id);
+    res.redirect('/categories');
   }
-  res.redirect('/categories');
 }
 
 module.exports = {
