@@ -34,6 +34,12 @@ button {
   color: var(--primary-color);
 }
 
+.container {
+  max-width: 800px;
+  /* border: 1px solid black; */
+  margin: 0 auto;
+}
+
 /* Navbar */
 .navbar {
   background-color: var(--secondary-color);
@@ -55,8 +61,44 @@ button {
   color: var(--text-color);
 }
 
-.container {
-  max-width: 800px;
-  border: 1px solid black;
-  margin: 0 auto;
+/* Items */
+.items-table,
+.categories-table {
+  border-collapse: collapse;
+  width: 100%;
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+}
+
+.items-table th,
+.categories-table th {
+  background-color: var(--accent-color);
+  color: var(--primary-color);
+}
+
+.items-table td,
+.items-table th,
+.categories-table td,
+.categories-table th {
+  border: 1px solid var(--secondary-color);
+  padding: 0.5rem;
+}
+
+.items-table tr:nth-child(even),
+.categories-table tr:nth-child(even) {
+  background-color: var(--primary-color);
+}
+
+.items-table .actions,
+.categories-table .actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.items-table button,
+.categories-table button {
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
 }
