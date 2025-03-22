@@ -2,19 +2,23 @@ const express = require('express');
 const app = express();
 const path = require('node:path');
 
-const inventoryRouter = require('./routes/inventoryRouter');
-const categoryRouter = require('./routes/categoryRouter');
+const itemsRouter = require('./routes/itemsRouter');
+const categoriesRouter = require('./routes/categoriesRouter');
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 app.use(express.urlencoded({ extended: true }));
 
-app.use('/inventory', inventoryRouter);
-app.use('/category', categoryRouter);
+app.use('/items', itemsRouter);
+app.use('/categories', categoriesRouter);
 
 app.use('/', (req, res) => {
   res.render('index');
+});
+
+app.use((err, req, res, next) => {
+  console.error(err);
 });
 
 const PORT = 3000;

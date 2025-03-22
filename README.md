@@ -3,15 +3,15 @@
 # Database
 
 Inventory {
-id
-name
-quantity
-unitPrice
-categoryId
+id (PK, Auto Increment)
+name (String)
+quantity (Integer)
+unitPrice (Decimal)
+categoryId (FK)
 }
 
 Category {
-id
-name
-description
+id (PK, auto increment)
+name (string)
+description (text, optional)
 }
