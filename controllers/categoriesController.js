@@ -8,7 +8,8 @@ async function getCategories(req, res) {
 }
 
 async function getCategoryById(req, res) {
-  const { id } = req.params;
+  const id = Number(req.params.id);
+
   const category = await db.getCategoryById(id);
 
   res.render(`categories/details`, { category });

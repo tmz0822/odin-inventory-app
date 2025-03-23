@@ -17,6 +17,18 @@ async function getItems() {
   return rows;
 }
 
+async function getItemById(id) {
+  const result = await pool.query(
+    `
+    SELECT * FROM items
+    WHERE id = $1
+    `,
+    [id]
+  );
+
+  return result.rows[0];
+}
+
 async function addItem({ name, quantity, unitPrice, categoryId }) {
   await pool.query(
     `
@@ -48,4 +60,4 @@ async function deleteItem(id) {
   );
 }
 
-module.exports = { getItems, addItem, updateItem, deleteItem };
+module.exports = { getItems, getItemById, addItem, updateItem, deleteItem };

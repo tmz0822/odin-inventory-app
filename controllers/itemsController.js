@@ -5,8 +5,6 @@ const categoryQueries = require('../db/categories/queries');
 async function getItems(req, res) {
   const items = await db.getItems();
 
-  console.log(items);
-
   res.render('items/index', {
     title: 'View items',
     items,
@@ -37,17 +35,30 @@ async function addItemPost(req, res) {
   res.redirect('/');
 }
 
-function updateItemGet(req, res) {
-  res.render('items/update');
+async function updateItemGet(req, res) {
+  const id = req.params.id;
+  const categories = await categoryQueries.getCategories();
+  const item = await db.getItemById(id);
+
+  res.render('items/update', { item, categories });
 }
 
 async function updateItemPost(req, res) {
   const { id } = req.params;
   const { name, quantity, unitPrice, categoryId } = req.body;
+
   await db.updateItem(id, { name, quantity, unitPrice, categoryId });
+
+  res.redirect('/items');
 }
 
-async function deleteItem(req, res) {}
+async function deleteItem(req, res) {
+  const id = req.params.id;
+
+  await db.deleteItem(id);
+
+  res.redirect('/items');
+}
 
 module.exports = {
   getItems,

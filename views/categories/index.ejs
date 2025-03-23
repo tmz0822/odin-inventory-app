@@ -1,6 +1,6 @@
 <%- include('../partials/header') %>
 
-<h1>Categories</h1>
+<a href="/categories/add">Add category</a>
 
 <table class="categories-table">
   <thead>
@@ -18,9 +18,11 @@
       <td><%= category.name %></td>
       <td><%= category.description %></td>
       <td class="actions">
-        <a href="/categories/<%= category.id %>/update">Update</a>
+        <a class="update-button" href="/categories/<%= category.id %>/update"
+          >Update</a
+        >
         <form method="post" action="/categories/<%= category.id %>/delete">
-          <button type="submit">Delete</button>
+          <button class="delete-button" type="submit">Delete</button>
         </form>
       </td>
     </tr>

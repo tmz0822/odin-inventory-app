@@ -13,6 +13,11 @@ app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
+// app.use((req, res, next) => {
+//   console.log(`Requested URL: ${req.method} ${req.url}`);
+//   next();
+// });
+
 app.use('/items', itemsRouter);
 app.use('/categories', categoriesRouter);
 

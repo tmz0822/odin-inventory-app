@@ -1,11 +1,16 @@
 <%- include('../partials/header') %>
 
-<h2>Add Category</h2>
-<form action="/categories/add" method="POST">
-  <label for="name">Name</label>
-  <input type="text" name="name" id="name" required />
-  <label for="description">Description</label>
-  <textarea id="description" name="description"></textarea>
+<h1 class="form-title">Add Category</h1>
+<form class="categories-form" action="/categories/add" method="POST">
+  <div class="form-field">
+    <label for="name">Name</label>
+    <input type="text" name="name" id="name" required />
+  </div>
+
+  <div class="form-field">
+    <label for="description">Description</label>
+    <textarea id="description" name="description"></textarea>
+  </div>
 
   <button type="submit">Add</button>
 </form>

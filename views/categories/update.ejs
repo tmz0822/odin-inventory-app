@@ -1,19 +1,27 @@
 <%- include('../partials/header') %>
 
-<h1>Update Category</h1>
-<form action="/categories/<%= category.id %>/update" method="POST">
-  <label for="name">Name</label>
-  <input
-    type="text"
-    name="name"
-    id="name"
-    value="<%= category.name %>"
-    required
-  />
-  <label for="description">Description</label>
-  <textarea id="description" name="description">
+<h1 class="form-title">Update Category</h1>
+<form
+  class="categories-form"
+  action="/categories/<%= category.id %>/update"
+  method="POST"
+>
+  <div class="form-field">
+    <label for="name">Name</label>
+    <input
+      type="text"
+      name="name"
+      id="name"
+      value="<%= category.name %>"
+      required
+    />
+  </div>
+  <div class="form-field">
+    <label for="description">Description</label>
+    <textarea id="description" name="description">
 <%= category.description %></textarea
-  >
+    >
+  </div>
   <button type="submit">Update</button>
 </form>
 
